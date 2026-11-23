@@ -5,12 +5,15 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "honeypots"
-version = "0.67"
+name = "SBL-honeypots"
+version = "0.1.0"
 authors = [
     { name = "QeeqBox", email = "gigaqeeq@gmail.com" },
 ]
-description = "30 different honeypots in one package! (dhcp, dns, elastic, ftp, http proxy, https proxy, http, https, imap, ipp, irc, ldap, memcache, mssql, mysql, ntp, oracle, pjl, pop3, postgres, rdp, redis, sip, smb, smtp, snmp, socks5, ssh, telnet, vnc)"
+maintainers = [
+    { name = "Jvrolijk", email = "jvrolijk@sblcybermonitoring.nl" },
+]
+description = "A fork of the Honeypots project"
 readme = "README.rst"
 # ToDo: fix smtp incompatibility with 3.12
 requires-python = ">=3.8"
@@ -30,7 +33,7 @@ dependencies = [
 license = {text = "AGPL-3.0"}
 
 [project.urls]
-Homepage = "https://github.com/qeeqbox/honeypots"
+Homepage = "https://github.com/sblcybermonitoring/honeypots"
 
 [project.optional-dependencies]
 dev = [
