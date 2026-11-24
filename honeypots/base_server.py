@@ -125,8 +125,24 @@ class BaseServer(ABC):
         self.kill_server()
         return False
 
+    def _server_entrypoint(self):
+        self.logs = setup_logger(
+            self.__class__.__name__,
+            self.uuid,
+            self.config if self.config else None,
+        )
+        self.server_main()
+
+    def _server_entrypoint(self):
+        self.logs = setup_logger(
+            self.__class__.__name__,
+            self.uuid,
+            self.config if self.config else None,
+        )
+        self.server_main()
+
     def _start_server(self) -> str:
-        self._server_process = Process(target=self.server_main)
+        self._server_process = Process(target=self._server_entrypoint)
         self._server_process.start()
         if service_has_started(int(self.port)):
             return "success"

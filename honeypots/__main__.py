@@ -19,6 +19,12 @@ from uuid import uuid4
 from netifaces import ifaddresses, AF_INET, AF_LINK, interfaces
 from psutil import net_io_counters, Process
 
+import multiprocessing
+multiprocessing.set_start_method("spawn", force=True)
+
+import multiprocessing
+multiprocessing.set_start_method("spawn", force=True)
+
 from honeypots import (
     QSniffer,
     QDHCPServer,

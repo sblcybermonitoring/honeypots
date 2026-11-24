@@ -99,7 +99,7 @@ class QVNCServer(BaseServer):
         factory = Factory()
         factory.protocol = CustomVNCProtocol
         reactor.listenTCP(port=self.port, factory=factory, interface=self.ip)
-        reactor.run()
+        reactor.run(installSignalHandlers=False)
 
     def test_server(self, ip=None, port=None, username=None, password=None):
         from vncdotool import api

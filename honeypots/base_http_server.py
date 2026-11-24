@@ -83,10 +83,10 @@ class BaseHttpServer(BaseServer, ABC):
                     request.responseHeaders.addRawHeader(
                         "Content-Type", "text/html; charset=utf-8"
                     )
-                    return self.login_file
+                    return self.login_file.encode("utf-8")
 
                 request.responseHeaders.addRawHeader("Content-Type", "text/html; charset=utf-8")
-                return self.login_file
+                return self.login_file.encode("utf-8")
 
             if request.method == b"POST":
                 self.headers = request.getAllHeaders()
@@ -114,4 +114,4 @@ class BaseHttpServer(BaseServer, ABC):
                         )
 
             request.responseHeaders.addRawHeader("Content-Type", "text/html; charset=utf-8")
-            return self.home_file
+            return self.home_file.encode("utf-8")
